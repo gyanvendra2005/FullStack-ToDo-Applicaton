@@ -1,8 +1,10 @@
 const express = require('express');
 const {createTodo ,editTodo} = require('./zod')
 const {todo} = require('./db')
+const cors = require('cors')
 const app = express()
 app.use(express.json());
+app.use(cors());
 
 // body {
       // tile: string,
@@ -30,13 +32,13 @@ app.post ('/todo', async (req, res) => {
             description: createPayLoad.description,
             completed: false,
         })
-        .then(
-            res.status(202).json("Todo Created succesfully")
-        )
-        .catch(
-            res.status(404).json("Something went wrong")
-        )
-        // res.json("todo created")
+        // .then(
+        //     res.status(202).json("Todo Created succesfully")
+        // )
+        // .catch(
+        //     res.status(404).json("Something went wrong")
+        // )
+        res.json("todo created")
 })
 
 app.get("/todos", async (req,res)=>{

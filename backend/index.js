@@ -28,7 +28,7 @@ app.post ('/todo', async (req, res) => {
         await todo.create({
             title: createPayLoad.title,
             description: createPayLoad.description,
-            completed: false, 
+            completed: false,
         })
         .then(
             res.status(202).json("Todo Created succesfully")
@@ -36,11 +36,12 @@ app.post ('/todo', async (req, res) => {
         .catch(
             res.status(404).json("Something went wrong")
         )
+        // res.json("todo created")
 })
 
 app.get("/todos", async (req,res)=>{
        const todos = await todo.find()
-       res.json({
+       res.status(202).json({
         todos
        })
 })

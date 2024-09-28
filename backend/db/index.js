@@ -1,7 +1,7 @@
 // import mongoose,{Schema,Types} from "mongoose";
 const  {mongoose,Schema,Types} = require('mongoose')
 // connect to mongoDB
-mongoose.connect("mongodb+srv://ToDo:todos1234@cluster0.uqw4p.mongodb.net/") 
+mongoose.connect("mongodb+srv://todo1234:todo1234@cluster0.1hn9q.mongodb.net") 
 const todoSchema = new mongoose.Schema(
     {
         title: {
@@ -12,9 +12,9 @@ const todoSchema = new mongoose.Schema(
             type:String,
             required: true,        
         },
-        // completed: {
-        //     type:Boolean,
-        // }
+        completed: {
+            type:Boolean,
+        }
     })
     const todo = mongoose.model("todo",todoSchema);
 module.exports = { todo }

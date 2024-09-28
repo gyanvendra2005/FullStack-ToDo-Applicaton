@@ -16,10 +16,10 @@ app.post ('/todo', async (req, res) => {
          const createPayLoad = req.body;
          const parsePayLoad = createTodo.safeParse(createPayLoad);
         //  validationCheck
-        //  if(!parsePayLoad.success){
-        //     res.status(404).json("Wrong input");
-        //     return;
-        //  }
+         if(!parsePayLoad.success){
+            res.status(404).json("Wrong input");
+            return;
+         }
          // connect of mongoDb
         //  const {title, describtion} = req.body
         //  const user = new user({

@@ -2,14 +2,16 @@ import { useState } from "react"
 
 export function Todos({todos}){
     const [completed, setCompleted] = useState(false)
+    const id = todos._id
+    // console.log(id);
+    
+
     const checkcompleted = () =>{
         fetch("http://localhost:3000/completed",{
             method:"PUT",
             body: JSON.stringify({
-                // title:title,
-                // description:description,
-                // id
-                completed:!completed,
+                 id,
+                completed:true ,
             }),
             headers: {
                 "content-type":"application/json"
@@ -17,7 +19,7 @@ export function Todos({todos}){
         })
         .then(async(res)=>{
             const json = await res.json()
-            setCompleted(completed)
+            // setCompleted(completed)
             alert("marked as done")
         })
     }

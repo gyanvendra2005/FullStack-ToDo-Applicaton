@@ -48,7 +48,7 @@ app.get("/todos", async (req,res)=>{
        })
 })
 
-app.put("/completed", async (req,res) => {
+app.post("/completed", async (req,res) => {
          const updatePayLoad = req.body;
          const parsePayLoad = editTodo.safeParse(updatePayLoad);
          //  validationCheck
